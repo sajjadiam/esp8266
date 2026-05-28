@@ -1,0 +1,12 @@
+[
+  {
+    "directory": "c:/Users/HOME/Desktop/esp/esp8266",
+    "file": "BSP/Src/esp_port_stm32f103_hal.c",
+    "command": "C:/Keil_v5/ARM/ARMCLANG/Bin/armclang.exe --target=arm-arm-none-eabi -mcpu=cortex-m3 -mthumb -std=c99 -DUSE_HAL_DRIVER -DSTM32F103xB -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -IApp/Inc -IBSP/Inc -c BSP/Src/esp_port_stm32f103_hal.c"
+  },
+  {
+    "directory": "c:/Users/HOME/Desktop/esp/esp8266",
+    "file": "Core/Src/main.c",
+    "command": "C:/Keil_v5/ARM/ARMCLANG/Bin/armclang.exe --target=arm-arm-none-eabi -mcpu=cortex-m3 -mthumb -std=c99 -DUSE_HAL_DRIVER -DSTM32F103xB -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -IApp/Inc -IBSP/Inc -c Core/Src/main.c"
+  }
+]
