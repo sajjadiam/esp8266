@@ -2,6 +2,7 @@ esp8266/esp_port_stm32f103_hal.o: ..\BSP\Src\esp_port_stm32f103_hal.c \
   ..\BSP\Inc\esp_port_stm32f103_hal.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
+  ..\BSP\Inc\esp_cmsis_compat.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
@@ -28,4 +29,4 @@ esp8266/esp_port_stm32f103_hal.o: ..\BSP\Src\esp_port_stm32f103_hal.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\App\Inc\esp_port.h ..\Core\Inc\usart.h ..\Core\Inc\main.h
+  ..\App\Inc\esp_port.h ..\App\Inc\esp_ring_buffer.h

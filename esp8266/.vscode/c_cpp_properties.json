@@ -1,29 +1,24 @@
 {
   "configurations": [
     {
-      "name": "STM32F103",
+      "name": "windows-gcc-x64",
       "includePath": [
-        "${workspaceFolder}/Core/Inc",
-        "${workspaceFolder}/Drivers/STM32F1xx_HAL_Driver/Inc",
-        "${workspaceFolder}/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
-        "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
-        "${workspaceFolder}/Drivers/CMSIS/Include",
-        "${workspaceFolder}/App/Inc",
-        "${workspaceFolder}/BSP/Inc"
+        "${workspaceFolder}/**"
       ],
       "defines": [
         "USE_HAL_DRIVER",
         "STM32F103xB",
         "__GNUC__"
       ],
-      "compilerPath": "C:/Keil_v5/ARM/ARMCLANG/Bin/armclang.exe",
+      "compilerPath": "C:/Program Files/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/gcc.exe",
       "compilerArgs": [
         "--target=arm-arm-none-eabi",
         "-mcpu=cortex-m3",
         "-mthumb"
       ],
-      "cStandard": "c99",
-      "intelliSenseMode": "gcc-arm"
+      "cStandard": "${default}",
+      "intelliSenseMode": "windows-gcc-x64",
+      "cppStandard": "${default}"
     }
   ],
   "version": 4

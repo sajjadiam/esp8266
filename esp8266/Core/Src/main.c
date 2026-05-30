@@ -19,12 +19,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
+#include "stm32f1xx_hal_uart.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "esp_port_stm32f103_hal.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,13 +92,43 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  static uint8_t esp_rx_buffer[256];
+  const esp_port_stm32f103_hal_config_t config = {
+    .uart_handle      = &huart1,
+    .reset_gpio_port  = ESP_RST_GPIO_Port,
+    .reset_gpio_pin   = ESP_RST_Pin,
+    .enable_gpio_port = ESP_EN_GPIO_Port,
+    .enable_gpio_pin  = ESP_EN_Pin,
+    .rx_buffer        = esp_rx_buffer,
+    .rx_buffer_size   = sizeof(esp_rx_buffer),
+  };
+
+  esp_port_t esp_port;
+
+  bool esp_init = esp_port_stm32f103_hal_init(&config,& esp_port);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint16_t avl = 0;
+  uint8_t temp[100] = {0};
   while (1)
   {
+    if(esp_init){
+      avl = esp_port.available();
+      if(avl > 0) {
+        if(avl > sizeof(temp)) {
+          avl = sizeof(temp);
+        }
+
+        uint16_t read_len = esp_port.read(temp , avl);
+        
+        if(read_len > 0){
+          esp_port.write(temp , read_len ,1000);
+        }
+      }
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -145,7 +176,9 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  esp_port_stm32f103_hal_uart_rx_cplt_callback(huart);
+}
 /* USER CODE END 4 */
 
 /**

@@ -24,7 +24,7 @@ typedef struct {
 } esp_port_stm32f103_hal_config_t;
 
 bool esp_port_stm32f103_hal_init(const esp_port_stm32f103_hal_config_t *config ,esp_port_t *out_port);
-
+void esp_port_stm32f103_hal_uart_rx_cplt_callback(UART_HandleTypeDef *uart_handle);
 #ifdef __cplusplus // اگر سی ++ باشد 
 } // پایان سی ++
 #endif // پایان سی ++

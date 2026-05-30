@@ -104,3 +104,17 @@ bool esp_port_stm32f103_hal_init(const esp_port_stm32f103_hal_config_t *config ,
 	s_initialized = true;
 	return true;
 }
+
+void esp_port_stm32f103_hal_uart_rx_cplt_callback(UART_HandleTypeDef *uart_handle){
+	if(!s_initialized) {
+		return;
+	}
+
+	if(uart_handle != s_config.uart_handle) {
+		return;
+	}
+
+	esp_ring_buffer_push(&s_rx_rb, s_rx_byte);
+
+	HAL_UART_Receive_IT(s_config.uart_handle, &s_rx_byte, 1);
+}
